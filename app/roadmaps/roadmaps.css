@@ -1,0 +1,35 @@
+/* Coder's Zone roadmaps — reuses the landing/solve token system. */
+
+.czr-main { max-width: 1200px; margin: 0 auto; padding: clamp(40px, 6vw, 64px) clamp(16px, 4vw, 32px) clamp(64px, 10vw, 104px); }
+.czr-head { max-width: 640px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; }
+.czr-head .cz-eyebrow, .czr-head .cz-h2 { margin: 0; }
+.czr-lede { margin: 0; font: 400 16px / 1.65 var(--cz-body); color: var(--cz-soft); }
+
+.czr-tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 22px; align-items: start; }
+.czr-track {
+  background: var(--cz-card-bg);
+  border: var(--cz-card-border);
+  border-radius: var(--cz-radius);
+  box-shadow: var(--cz-card-shadow);
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+.czr-track-head { border-bottom: 1px solid var(--cz-panel-line); padding: 16px 20px; }
+.czr-track-label { font: 600 12.5px var(--cz-mono); letter-spacing: 0.08em; margin-bottom: 4px; }
+.czr-track-sub { font: 400 12px / 1.5 var(--cz-body); color: var(--cz-faint); }
+.czr-step {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  gap: 10px;
+  align-items: baseline;
+  padding: 13px 20px;
+  border-top: 1px solid var(--cz-panel-line);
+  color: inherit;
+  text-decoration: none;
+}
+.czr-step:first-of-type { border-top: none; }
+.czr-step:hover { background: var(--cz-alt); }
+.czr-num { font: 400 11.5px var(--cz-mono); color: var(--cz-faint); }
+.czr-title { font: 500 14.5px var(--cz-body); color: var(--cz-fg); }
+.czr-go { font: 500 12px var(--cz-mono); color: var(--cz-accent); white-space: nowrap; }
+.czr-foot { margin-top: 36px; font: 400 12.5px / 1.6 var(--cz-mono); color: var(--cz-faint); }

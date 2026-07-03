@@ -1,0 +1,33 @@
+/* Coder's Zone contact — reuses the landing token system (landing.css, global). */
+
+.czc-main { max-width: 860px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(16px, 4vw, 32px) clamp(64px, 10vw, 104px); }
+.czc-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 44px; }
+.czc-head .cz-eyebrow, .czc-head .cz-h2 { margin: 0; }
+.czc-lede { margin: 0; font: 400 17px / 1.7 var(--cz-body); color: var(--cz-soft); }
+.czc-rows { display: flex; flex-direction: column; margin-bottom: 44px; }
+.czc-row {
+  border-top: 1px solid var(--cz-line);
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  color: inherit;
+  text-decoration: none;
+}
+.czc-row-last { border-bottom: 1px solid var(--cz-line); }
+.czc-row:hover { background: var(--cz-alt); }
+.czc-go { font: 500 12px var(--cz-mono); color: var(--cz-accent); white-space: nowrap; }
+.czc-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: var(--cz-ghost-border);
+  border-radius: 99px;
+  padding: 10px 20px;
+  font: 500 13px var(--cz-mono);
+  color: var(--cz-fg);
+  text-decoration: none;
+}
+.czc-mail:hover { background: var(--cz-alt); }
+.czc-foot { margin-top: 20px; font: 400 12px / 1.7 var(--cz-mono); color: var(--cz-faint); }
