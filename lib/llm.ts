@@ -16,7 +16,9 @@ export function getClient(): OpenAI {
   return client;
 }
 
-export const SOLVER_MODEL = process.env.SOLVER_MODEL ?? "deepseek-ai/deepseek-v4-pro";
+// glm-5.2 matched deepseek-v4-pro on solution quality/simplicity in probes
+// while being ~7x faster on this endpoint (v4-pro solves ran 4-8 minutes).
+export const SOLVER_MODEL = process.env.SOLVER_MODEL ?? "z-ai/glm-5.2";
 // Chat default chosen empirically on this endpoint: v4-flash had 2-minute
 // latencies, kimi-k2.6's content stream emitted junk prefixes; glm-5.2 was
 // fast and clean. Override with CHAT_MODEL if the endpoint changes.
