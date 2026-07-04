@@ -7,9 +7,10 @@ import { useAuth } from "@/components/auth";
 import { SignInDialog } from "@/components/sign-in-dialog";
 
 const LINKS = [
+  { label: "Home", href: "/" },
   { label: "Practice", href: "/practice" },
-  { label: "Solver", href: "/practice" },
-  { label: "Roadmaps", href: "/#loop" },
+  { label: "Solver", href: "/solver" },
+  { label: "Exam", href: "/exam" },
   { label: "About", href: "/#about" },
 ];
 

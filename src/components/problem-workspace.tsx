@@ -285,6 +285,11 @@ export function ProblemWorkspace({ problem }: { problem: Problem }) {
                     </div>
                   ))}
                 </div>
+                {!judge.allPassed && !revealed && (
+                  <button className="cz-btn" style={{ fontSize: 13, padding: "9px 16px", marginTop: 14 }} onClick={reveal}>
+                    See the correct solution →
+                  </button>
+                )}
               </>
             )}
           </div>
