@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ===== Coder's Zone design tokens (ported from the approved design) ===== */
+:root,
+[data-cz-theme="light"] {
+  --cz-bg: #eef1f5; --cz-fg: #16283f; --cz-soft: rgba(22,40,63,.72); --cz-faint: rgba(22,40,63,.52);
+  --cz-accent: #2a5f9e; --cz-line: rgba(22,40,63,.16);
+  --cz-nav-bg: rgba(238,241,245,.82);
+  --cz-card-bg: #ffffff; --cz-card-border: 1.5px solid #16283f; --cz-card-shadow: 5px 5px 0 rgba(22,40,63,.14); --cz-radius: 8px;
+  --cz-btn-bg: #16283f; --cz-btn-fg: #eef1f5; --cz-btn-shadow: 4px 4px 0 rgba(42,95,158,.35); --cz-btn-radius: 6px;
+  --cz-ghost-border: 1.5px solid rgba(22,40,63,.35);
+  --cz-alt: rgba(255,255,255,.55);
+  --cz-green: #1a7a4a; --cz-green-bg: rgba(26,122,74,.07); --cz-green-line: rgba(26,122,74,.35);
+  --cz-amber: #9a6410; --cz-amber-bg: rgba(154,100,16,.07); --cz-amber-line: rgba(154,100,16,.35);
+  --cz-red: #b42318; --cz-red-bg: rgba(180,35,24,.07); --cz-red-line: rgba(180,35,24,.35);
+  --cz-panel-bg: #ffffff; --cz-panel-line: rgba(22,40,63,.12);
+  --cz-syn-kw: #7c3aed; --cz-syn-kw-w: 500; --cz-syn-fn: #1d4ed8; --cz-syn-com: #64748b; --cz-syn-str: #15803d; --cz-syn-plain: #16283f; --cz-syn-type: #0e7490;
+  --cz-chip-bg: #ffffff;
+  --cz-hglow: none;
+  --cz-grid-op: 1; --cz-glow-op: 0;
+  --cz-display: var(--font-space-grotesk), sans-serif;
+  --cz-body: var(--font-space-grotesk), sans-serif;
+  --cz-mono: var(--font-ibm-plex-mono), monospace;
+}
+
+[data-cz-theme="dark"] {
+  --cz-bg: #030305; --cz-fg: #f2f3f6; --cz-soft: rgba(242,243,246,.6); --cz-faint: rgba(242,243,246,.42);
+  --cz-accent: #ffffff; --cz-line: rgba(242,243,246,.12);
+  --cz-nav-bg: rgba(3,3,5,.78);
+  --cz-card-bg: rgba(14,14,18,.7); --cz-card-border: 1px solid rgba(242,243,246,.12); --cz-card-shadow: 0 30px 90px rgba(0,0,0,.7); --cz-radius: 14px;
+  --cz-btn-bg: #f2f3f6; --cz-btn-fg: #0a0a0c; --cz-btn-shadow: 0 0 32px rgba(255,255,255,.22); --cz-btn-radius: 10px;
+  --cz-ghost-border: 1px solid rgba(242,243,246,.22);
+  --cz-alt: rgba(242,243,246,.035);
+  --cz-green: #4ade80; --cz-green-bg: rgba(74,222,128,.05); --cz-green-line: rgba(74,222,128,.25);
+  --cz-amber: #fbbf24; --cz-amber-bg: rgba(251,191,36,.06); --cz-amber-line: rgba(251,191,36,.3);
+  --cz-red: #f87171; --cz-red-bg: rgba(248,113,113,.06); --cz-red-line: rgba(248,113,113,.3);
+  --cz-panel-bg: rgba(14,14,18,.7); --cz-panel-line: rgba(242,243,246,.08);
+  --cz-syn-kw: #ffffff; --cz-syn-kw-w: 600; --cz-syn-fn: #d7dbe6; --cz-syn-com: rgba(242,243,246,.38); --cz-syn-str: #cfe3cf; --cz-syn-plain: #dfe3ec; --cz-syn-type: #d7dbe6;
+  --cz-chip-bg: rgba(242,243,246,.05);
+  --cz-hglow: 0 0 28px rgba(255,255,255,.55);
+  --cz-grid-op: 0; --cz-glow-op: 1;
+  --cz-display: var(--font-bricolage), sans-serif;
+  --cz-body: var(--font-bricolage), sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light dark; }
+
+body {
+  margin: 0;
+  background: var(--cz-bg);
+  color: var(--cz-fg);
+  font-family: var(--cz-body);
+  transition: background-color .5s ease, color .5s ease;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@keyframes czUp { from { transform: translateY(14px); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes czBlink { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }
+@keyframes czPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,.35) } 50% { box-shadow: 0 0 0 6px rgba(74,222,128,0) } }
+@keyframes czSpin { to { transform: rotate(360deg) } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, body { animation: none !important; transition: none !important; }
+}
+
+/* shared helpers */
+.cz-mono { font-family: var(--cz-mono); }
+.cz-container { max-width: 1200px; margin: 0 auto; padding-left: clamp(16px,4vw,32px); padding-right: clamp(16px,4vw,32px); }
+.cz-btn {
+  font: 600 15px var(--cz-body); background: var(--cz-btn-bg); color: var(--cz-btn-fg);
+  padding: 12px 24px; border-radius: var(--cz-btn-radius); border: none; cursor: pointer;
+  box-shadow: var(--cz-btn-shadow); transition: transform .15s ease; display: inline-flex; align-items: center; gap: 8px;
+}
+.cz-btn:hover:not(:disabled) { transform: translateY(-2px); }
+.cz-btn:disabled { opacity: .5; cursor: not-allowed; }
+.cz-btn-ghost {
+  font: 500 15px var(--cz-body); border: var(--cz-ghost-border); background: transparent; color: var(--cz-fg);
+  padding: 11px 22px; border-radius: var(--cz-btn-radius); cursor: pointer; transition: background-color .2s ease;
+}
+.cz-btn-ghost:hover:not(:disabled) { background: var(--cz-alt); }
+.cz-card {
+  background: var(--cz-card-bg); border: var(--cz-card-border); border-radius: var(--cz-radius);
+  box-shadow: var(--cz-card-shadow); transition: background-color .5s ease;
+}
